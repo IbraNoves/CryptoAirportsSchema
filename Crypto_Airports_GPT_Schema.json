@@ -1,32 +1,45 @@
 {
-    "input": {
-        "type": "object",
-        "properties": {
-            "city_name": {
-                "type": "string",
-                "description": "The name of the city for which the NFT design prompt should be generated."
-            }
-        },
-        "required": ["city_name"]
-    },
-    "output": {
-        "type": "string",
-        "description": "A detailed NFT design prompt that includes the city name, airport code, key landmarks, and a suitable color scheme."
-    },
-    "example": {
-        "city_name": "Paris"
-    },
-    "instructions": {
-        "format": "text",
-        "style": "consistent with the JFK NFT concept",
-        "generation": {
-            "prompt_structure": [
-                "Include the city name in the prompt.",
-                "Automatically determine and include the airport code for the city.",
-                "Identify and list key cultural and iconic landmarks of the city.",
-                "Suggest a color scheme that reflects the city's atmosphere.",
-                "Ensure the prompt guides the creation of an NFT that visually represents the city and its airport."
-            ]
-        }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Crypto Airports API",
+    "version": "1.0.0",
+    "description": "This API generates NFT design prompts for airports based on city names."
+  },
+  "servers": [
+    {
+      "url": "https://example.com/api",
+      "description": "Placeholder API server"
     }
+  ],
+  "paths": {
+    "/generate-prompt": {
+      "get": {
+        "summary": "Get NFT Design Prompt",
+        "parameters": [
+          {
+            "name": "city_name",
+            "in": "query",
+            "required": true,
+            "description": "The name of the city for which the NFT design prompt should be generated.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A detailed NFT design prompt",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Create an NFT design for the airport in Paris..."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
